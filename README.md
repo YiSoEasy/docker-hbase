@@ -1,5 +1,5 @@
 ## Run Distributed HBase Cluster within Docker Containers
-
+![alt tag](https://github.com/YiSoEasy/docker-hbase/blob/master/hbase-cluster-docker.png)
 ### 3 Nodes HBase Cluster
 
 ##### 1. pull/build docker image
