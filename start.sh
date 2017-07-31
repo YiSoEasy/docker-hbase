@@ -20,7 +20,7 @@ sudo docker run -itd \
                 -e HADOOP_MASTER="hadoop-master" \
                 -e HBASE_MASTER="hadoop-master" \
                 -e NETWORK=$NET \
-                yliangdocker/hbase:latest &> /dev/null
+                yisoeasy/hbase:latest &> /dev/null
 
 
 
@@ -39,7 +39,7 @@ do
                     -e HADOOP_MASTER="hadoop-master" \
                     -e HBASE_MASTER="hadoop-master" \
                     -e NETWORK=$NET \
-                    yliangdocker/hbase:latest &> /dev/null
+                    yisoeasy/hbase:latest &> /dev/null
 	i=$(( $i + 1 ))
 done 
 
