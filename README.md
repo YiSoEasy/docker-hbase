@@ -5,10 +5,10 @@
 ##### 1. pull/build docker image
 
 ```
-sudo docker pull yliangdocker/hbase:latest
+sudo docker pull yisoeasy/hbase:latest
 
-you can also run command below to build image: 
-sudo docker build -t yliangdocker/hbase:latest .
+you can also run command below to build image after step2: 
+sudo docker build -t yisoeasy/hbase:latest .
 ```
 
 ##### 2. clone github repository
@@ -44,11 +44,13 @@ cd ~/cluter/cluster_test
 
 ##### 5. limitations
 ```
-1. These code can run multiple hbase containers on only single host. I am now working on
-how to depoly multiple hbase containers on multiple nodes using Kubernetes
+1. These code can run multiple hbase containers in distributed mode 
+on only single host. I am now working on how to depoly multiple hbase containers
+on multiple nodes using Kubernetes
 
 2. Because of the docker network issues, we need to take care of hbase-site.xml.
-Try to ping hadoop-slave1 from hadoop-master, you can see the real hadoop-slave1 hostname,
-The real host name may have following format: [$container-name.$network-name]
+Try to ping hadoop-slave1 from hadoop-master, you can see the real hadoop-slave1 
+hostname, you can see the real host name have following format:
+[$container-name.$network-name]
 Specify hbase.regionserver.hostname in hbase-site.xml, see HBASE-12954
 ```
