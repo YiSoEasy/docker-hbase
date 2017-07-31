@@ -53,4 +53,5 @@ Try to ping hadoop-slave1 from hadoop-master, you can see the real hadoop-slave1
 hostname, you can see the real host name have following format:
 [$container-name.$network-name]
 Specify hbase.regionserver.hostname in hbase-site.xml, see HBASE-12954
+For details, see conf/hbase_conf/hbaseSet.sh
 ```
