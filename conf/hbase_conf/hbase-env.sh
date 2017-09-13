@@ -24,9 +24,9 @@
 
 # The java implementation to use.  Java 1.7+ required.
 #export JAVA_HOME=/opt/jdk
-
+ export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 # Extra Java CLASSPATH elements.  Optional.
- export HBASE_CLASSPATH=$HADOOP_CONF_DIR:$ZOO_CONF_DIR:$HBASE_CONF_DIR
+# export HBASE_CLASSPATH=$HADOOP_CONF_DIR:$ZOO_CONF_DIR:$HBASE_CONF_DIR
 
 # The maximum amount of heap to use. Default is left to JVM default.
 # export HBASE_HEAPSIZE=1G
@@ -42,8 +42,8 @@
 export HBASE_OPTS="-XX:+UseConcMarkSweepGC"
 
 # Configure PermSize. Only needed in JDK7. You can safely remove it for JDK8+
-export HBASE_MASTER_OPTS="$HBASE_MASTER_OPTS -XX:PermSize=128m -XX:MaxPermSize=128m"
-export HBASE_REGIONSERVER_OPTS="$HBASE_REGIONSERVER_OPTS -XX:PermSize=128m -XX:MaxPermSize=128m"
+#export HBASE_MASTER_OPTS="$HBASE_MASTER_OPTS -XX:PermSize=128m -XX:MaxPermSize=128m"
+#export HBASE_REGIONSERVER_OPTS="$HBASE_REGIONSERVER_OPTS -XX:PermSize=128m -XX:MaxPermSize=128m"
 
 # Uncomment one of the below three options to enable java garbage collection logging for the server-side processes.
 

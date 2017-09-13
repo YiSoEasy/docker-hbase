@@ -1,6 +1,7 @@
 #!/bin/sh -ex
 
 mv $HBASE_SCONF_DIR/hbase-site.xml $HBASE_HOME/conf/hbase-site.xml
+mv $HBASE_SCONF_DIR/hbase-env.sh $HBASE_HOME/conf/hbase-env.sh
 # start hbase-master in master and hbase-regionserver in slaves
 THISHOST=$(hostname)
 if [ "$THISHOST" = "$HBASE_MASTER" ]; then

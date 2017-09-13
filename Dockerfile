@@ -1,12 +1,19 @@
 FROM ubuntu:14.04
 
 # specify hadoop/zookeeper/hbase version
-ARG ZOOKEEPER_VERSION=3.4.9
-ARG HADOOP_VERSION=2.7.2
+ARG ZOOKEEPER_VERSION=3.4.10
+ARG HADOOP_VERSION=2.7.1
 ARG HBASE_VERSION=1.2.6
 
 # install openssh-server, openjdk and wget
-RUN apt-get update && apt-get install -y openssh-server openjdk-7-jdk 
+RUN apt-get -y update && apt-get install -y openssh-server
+
+RUN apt-get install -y software-properties-common && \
+    add-apt-repository -y ppa:openjdk-r/ppa && \
+    apt-get -y update && \
+    apt-get install -y openjdk-8-jdk && \
+    update-alternatives --set java /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java && \
+    update-alternatives --set javac /usr/lib/jvm/java-8-openjdk-amd64/bin/javac
 
 # install zookeeper 
 RUN wget http://supergsego.com/apache/zookeeper/zookeeper-$ZOOKEEPER_VERSION/zookeeper-$ZOOKEEPER_VERSION.tar.gz && \
@@ -28,11 +35,11 @@ RUN wget https://archive.apache.org/dist/hbase/$HBASE_VERSION/hbase-$HBASE_VERSI
 
 # set environment variable
 ENV CLUSTER_HOME=/root/cluster
-ENV JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
+ENV JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 ENV HADOOP_HOME=/usr/local/hadoop 
 ENV ZOOKEEPER_HOME=/usr/local/zookeeper
 ENV HBASE_HOME=/usr/local/hbase
-ENV PATH="$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin:$HBASE_HOME/bin:$ZOOKEEPER_HOME/bin"
+ENV PATH="$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin:$HBASE_HOME/bin:$ZOOKEEPER_HOME/bin:$JAVA_HOME/bin"
 
 # set work directory
 WORKDIR $CLUSTER_HOME
