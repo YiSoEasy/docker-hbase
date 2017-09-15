@@ -54,7 +54,7 @@ ADD conf/ssh_config /root/.ssh/config
 ENV ZOO_CONF_DIR=$ZOOKEEPER_HOME/conf
 ENV ZOO_USER_DIR=$CLUSTER_HOME/zookeeper
 ENV ZOO_SCONF_DIR=$ZOO_USER_DIR/setConf
-ENV ZOO_LOG_DIR=$ZOO_USER_DIR/log
+#ENV ZOO_LOG_DIR=$ZOO_USER_DIR/log
 ENV ZOO_DATA_DIR=$ZOO_USER_DIR/data
 ENV ZOO_DATA_LOG_DIR=$ZOO_USER_DIR/datalog
 
@@ -73,7 +73,7 @@ ENV HADOOP_SCONF_DIR=$HADOOP_USER_DIR/setConf
 ENV HBASE_CONF_DIR=$HBASE_HOME/conf
 ENV HBASE_USER_DIR=$CLUSTER_HOME/hbase
 ENV HBASE_SCONF_DIR=$HBASE_USER_DIR/setConf
-ENV HBASE_LOG_DIR=$HBASE_USER_DIR/log
+#ENV HBASE_LOG_DIR=$HBASE_USER_DIR/log
 
 # make home dir
 run mkdir -p $CLUSTER_HOME
@@ -88,13 +88,11 @@ RUN mkdir -p $ZOO_USER_DIR  && \
 RUN mkdir -p $HADOOP_USER_DIR && \
     mkdir -p $HADOOP_USER_DIR/namenode && \
     mkdir -p $HADOOP_USER_DIR/datanode && \
-    mkdir -p $HADOOP_USER_DIR/logs && \
     mkdir -p $HADOOP_SCONF_DIR
 
 # make hbase dir
 RUN mkdir -p $HBASE_USER_DIR && \
-    mkdir -p $HBASE_SCONF_DIR && \
-    mkdir -p $HBASE_LOG_DIR
+    mkdir -p $HBASE_SCONF_DIR
 
 
 # move config file into docker
