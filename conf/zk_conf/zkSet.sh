@@ -24,4 +24,4 @@ fi
 
 # Start Zookeeper Server
 chmod +x $ZOOKEEPER_HOME/bin/zkServer.sh
-$ZOOKEEPER_HOME/bin/zkServer.sh start
+sudo $ZOOKEEPER_HOME/bin/zkServer.sh start

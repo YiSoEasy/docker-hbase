@@ -14,14 +14,14 @@ chmod +x $HADOOP_HOME/sbin/start-yarn.sh
 chmod +x $HADOOP_HOME/sbin/mr-jobhistory-daemon.sh
 
 # format namenode
-$HADOOP_HOME/bin/hdfs namenode -format
+sudo $HADOOP_HOME/bin/hdfs namenode -format
 
 
 # Start hadoop cluster in master, this run namenode and secondaryNN on same 
 # node, modify it if necessary
 THISHOST=$(hostname)
 if [ "$THISHOST" = "$HADOOP_MASTER" ]; then
-    $HADOOP_HOME/sbin/start-dfs.sh
-    $HADOOP_HOME/sbin/start-yarn.sh
-    $HADOOP_HOME/sbin/mr-jobhistory-daemon.sh start historyserver
+    sudo $HADOOP_HOME/sbin/start-dfs.sh
+    sudo $HADOOP_HOME/sbin/start-yarn.sh
+    sudo $HADOOP_HOME/sbin/mr-jobhistory-daemon.sh start historyserver
 fi
