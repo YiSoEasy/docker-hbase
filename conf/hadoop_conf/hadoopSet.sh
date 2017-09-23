@@ -8,11 +8,6 @@ mv $HADOOP_SCONF_DIR/mapred-site.xml $HADOOP_HOME/etc/hadoop/mapred-site.xml && 
 mv $HADOOP_SCONF_DIR/yarn-site.xml $HADOOP_HOME/etc/hadoop/yarn-site.xml && \
 mv $HADOOP_SCONF_DIR/slaves $HADOOP_HOME/etc/hadoop/slaves 
 
-# Change start file mode
-chmod +x $HADOOP_HOME/sbin/start-dfs.sh && \
-chmod +x $HADOOP_HOME/sbin/start-yarn.sh 
-chmod +x $HADOOP_HOME/sbin/mr-jobhistory-daemon.sh
-
 # format namenode
 sudo $HADOOP_HOME/bin/hdfs namenode -format
 

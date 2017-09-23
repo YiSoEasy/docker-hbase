@@ -101,6 +101,10 @@ COPY conf/zk_conf/* $ZOO_SCONF_DIR/
 COPY conf/hadoop_conf/* $HADOOP_SCONF_DIR/
 COPY conf/hbase_conf/* $HBASE_SCONF_DIR/
 
+# chmod +x xxxSet.sh to avoid 'Text File Busy'
+RUN chmod +x $ZOO_SCONF_DIR/zkSet.sh && \
+    chmod +x $HADOOP_SCONF_DIR/hadoopSet.sh && \
+    chmod +x $HBASE_SCONF_DIR/hbaseSet.sh
 
 # zookeeper ports
 EXPOSE 2181 2888 3888

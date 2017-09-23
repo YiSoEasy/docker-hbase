@@ -23,5 +23,4 @@ fi
 #cp -f $ZOO_SCONF_DIR/log4j.properties $ZOO_CONF_DIR
 
 # Start Zookeeper Server
-chmod +x $ZOOKEEPER_HOME/bin/zkServer.sh
 sudo $ZOOKEEPER_HOME/bin/zkServer.sh start
