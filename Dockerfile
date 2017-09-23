@@ -96,7 +96,8 @@ RUN mkdir -p $HBASE_USER_DIR && \
 
 
 # move config file into docker
-COPY cluster_test/* $CLUSTER_HOME/cluster_test/
+COPY test/* $CLUSTER_HOME/test/
+COPY scripts/* $CLUSTER_HOME/scripts/
 COPY conf/zk_conf/* $ZOO_SCONF_DIR/
 COPY conf/hadoop_conf/* $HADOOP_SCONF_DIR/
 COPY conf/hbase_conf/* $HBASE_SCONF_DIR/
